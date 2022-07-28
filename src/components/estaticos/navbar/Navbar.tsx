@@ -1,50 +1,57 @@
 import React from 'react';
-import { Typography, Toolbar, AppBar, Box } from '@mui/material';
-
+import "../navbar/Navbar.css";
+import { Toolbar, AppBar } from "@mui/material";
 function Navbar() {
+
+
     return (
         <>
-        <AppBar position="static">
-                <Toolbar variant="dense">
-                    <Box style={{ cursor: "pointer" }} >
-                        <Typography variant="h5" color="inherit">
-                            BlogPessoal
-                        </Typography>
-                    </Box>
+            <AppBar position="static">
+                <Toolbar className='header' variant="dense">
+                    <div className="containerBlog">
+                        <div className="Box"  style={{ cursor: "pointer" }}>
+                            <h2>
+                               Blog Pessoal
+                            </h2>
+                            
+                        </div>
 
-                    <Box display="flex" justifyContent="start">
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
-                                home
-                            </Typography>
-                        </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
+                    </div>
+
+                    <div className="containerNav">
+
+                        <div className="Box"  style={{ cursor: "pointer" }}>
+                            <h2>
+                               home 
+                            </h2>
+                        </div>
+                        <div className="Box"  style={{ cursor: "pointer" }}>
+                            <h2>
                                 postagens
-                            </Typography>
-                        </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
+                            </h2>
+                        </div>
+                        <div className="Box"  style={{ cursor: "pointer" }}>
+                            <h2>
                                 temas
-                            </Typography>
-                        </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
+                            </h2>
+                        </div>
+                        <div className="Box" style={{ cursor: "pointer" }}>
+                            <h2>
                                 cadastrar tema
-                            </Typography>
-                        </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" color="inherit">
+                            </h2>
+                        </div>
+                        <div className="Box"  style={{ cursor: "pointer" }}>
+                            <h2 >
                                 logout
-                            </Typography>
-                        </Box>
-                    </Box>
+                            </h2>
+                        </div>
+
+                    </div>
 
                 </Toolbar>
             </AppBar>
-
         </>
-    )
+    );
 }
 
 export default Navbar;
