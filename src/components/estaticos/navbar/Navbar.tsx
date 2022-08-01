@@ -1,6 +1,8 @@
 import React from 'react';
 import "../navbar/Navbar.css";
-import { Toolbar, AppBar } from "@mui/material";
+import { Toolbar, AppBar} from "@mui/material";
+import {Link} from 'react-router-dom';
+
 function Navbar() {
 
 
@@ -40,11 +42,13 @@ function Navbar() {
                                 cadastrar tema
                             </h2>
                         </div>
-                        <div className="Box"  style={{ cursor: "pointer" }}>
+                        <Link to='/login' className='text-decorator-none'>                   
+                        <div className="Box"  style={{ cursor: "pointer", color:'white' }}>
                             <h2 >
                                 logout
                             </h2>
                         </div>
+                        </Link>
 
                     </div>
 

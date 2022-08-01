@@ -8,6 +8,8 @@
 .containerImg {
     display: flex;
     justify-content: center;
+    color: white !important;
+    font-size: 60px !important;
     
     
 }
@@ -21,9 +23,6 @@
     border-radius: 30px;
 }
 .rede{
-    background-color: #9b5de5;
-    font-family: 'Montserrat Alternates', sans-serif;
-}
-.copy{
-    background-color: #9b5de5;
+    background-color: black;
+    
 }

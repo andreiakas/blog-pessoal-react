@@ -16,25 +16,25 @@ function Footer(){
                         <Box className="rede" paddingTop={1} display="flex" alignItems="center" justifyContent="center">
                             <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}>Siga-nos nas redes sociais </Typography>
                         </Box>
-                        <div className="containerImg">
+                        <div className='containerImg'>
                             <a href="https://www.facebook.com/generationbrasil" target="_blank">
-                                <FacebookIcon style={{ fontSize: 60, color: "white" }} />
+                                <FacebookIcon className="containerImg"/>
                             </a>
                             <a href="https://www.instagram.com/generationbrasil/" target="_blank">
-                                <InstagramIcon style={{ fontSize: 60, color: "white" }} />
+                                <InstagramIcon  className="containerImg"/>
                             </a>
                             <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank">
-                                <LinkedInIcon style={{ fontSize: 60, color: "white" }} />
+                                <LinkedInIcon className="containerImg"/>
                             </a>
                         </div>
                     </div>
-                    <Box className="copy">
+                    <Box>
                         <Box>
-                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "black" }} >© 2020 Copyright:</Typography>
+                            <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "black" }}> © 2020 Copyright:</Typography>
                         </Box>
                         <Box>
-                            <a target="_blank" href="https://brasil.generation.org">
-                                <Typography variant="subtitle2" gutterBottom style={{ color: "black" }} align="center">brasil.generation.org</Typography>
+                            <a href="https://brasil.generation.org" target="_blank">
+                                <Typography variant="subtitle2" gutterBottom style={{ color: "black" }} align="center"> brasil.generation.org</Typography>
                             </a>
                         </Box>
                     </Box>
