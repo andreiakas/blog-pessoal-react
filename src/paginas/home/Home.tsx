@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Grid } from "@mui/material";
-import TabPostagem from '../../components/postagens/tabpostagens/TabPostagem';
+import TabPostagem from '../../components/postagem/tabpostagens/TabPostagem';
 import "./Home.css";
 
 
@@ -23,7 +23,7 @@ function Home() {
                     <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
 
                 </div>
-                <Grid xs={12} className='postagens'>
+                <Grid xs={12} style={{ backgroundColor: "white" }}>
                     <TabPostagem />
                 </Grid>
             </div>

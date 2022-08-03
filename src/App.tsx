@@ -5,8 +5,8 @@ import Footer from './components/estaticos/footer/Footer';
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
-import ListaTema from './components/temas/listatemas/ListaTema';
-import ListaPostagem from './components/postagens/listapostagens/ListaPostagem';
+import ListaTema from './components/tema/ListaTema/ListaTema';
+import ListaPostagem from './components/postagem/listapostagem/ListaPostagem';
 import './App.css';
 
 function App() {
@@ -18,9 +18,9 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/cadastroUsuario" element={<CadastroUsuario />} />
-          <Route path="/temas" element={<ListaTema />} />
-        <Route path="/posts" element={<ListaPostagem />} />
+          <Route path="/cadastrousuario" element={<CadastroUsuario />} />
+          <Route path="/tema" element={<ListaTema />} />
+        <Route path="/postagem" element={<ListaPostagem />} />
         </Routes>
       </div>
       <Footer />
