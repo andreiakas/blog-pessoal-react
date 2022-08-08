@@ -6,7 +6,7 @@ import { logar } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
 
-function Login() {
+function Logar() {
 
     let navigate = useNavigate();
     const [token, setToken] = useLocalStorage('token');
@@ -16,6 +16,7 @@ function Login() {
             nome: '',
             usuario: '',
             senha: '',
+            token:'',
             foto: ''
         })
 
@@ -37,15 +38,14 @@ function Login() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
+        
         try {
             await logar(`/usuarios/logar`, userLogin, setToken)
 
-            alert('Usuário logado com sucesso!');
-
-        }
-        catch (error) {
-            alert('Dados do usuário inconsistentes. Erro ao logar!')
-
+            alert("Usuario logado com sucesso!");
+        } 
+        catch(error){
+            alert('Dados do usuario inconsistentes. Erro ao logar');
         }
     }
 
@@ -57,13 +57,16 @@ function Login() {
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className="textos"> Entrar</Typography>
 
-                        <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
-                        <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
+                        <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
+                        <TextField value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
 
                         <Box marginTop={2} textAlign='center'>
+
                             <Button type='submit' variant='contained' color='primary'>
                                 Logar
                             </Button>
+
+                            
                         </Box>
                     </form>
 
@@ -72,7 +75,7 @@ function Login() {
                             <Typography variant="subtitle1" align="center" gutterBottom>Não tem uma conta?</Typography>
                         </Box>
                         <Link to='/cadastrousuario'>
-                            <Typography variant="subtitle1" align="center" gutterBottom className="textos">Cadastra-se</Typography>
+                            <Typography variant="subtitle1" align="center" gutterBottom className="textos">Cadastre-se</Typography>
                         </Link>
 
                     </Box>
@@ -85,4 +88,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Logar;

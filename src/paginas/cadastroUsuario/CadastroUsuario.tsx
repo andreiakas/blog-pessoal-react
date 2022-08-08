@@ -9,7 +9,7 @@ function CadastroUsuario() {
 
     let navigate = useNavigate();
     const [confirmarSenha, setConfirmarSenha] = useState<String>("");
-    const [user, setUser] = useState<Usuario>(
+    const [usuario, setUsuario] = useState<Usuario>(
         {
             id: 0,
             nome: '',
@@ -18,7 +18,7 @@ function CadastroUsuario() {
             foto: ''
         })
 
-    const [userResult, setUserResult] = useState<Usuario>(
+    const [usuarioResult, setUsuarioResult] = useState<Usuario>(
         {
             id: 0,
             nome: '',
@@ -29,10 +29,10 @@ function CadastroUsuario() {
     )
 
     useEffect(() => {
-        if (userResult.id !== 0) {
+        if (usuarioResult.id !== 0) {
             navigate("/login")
         }
-    }, [userResult])
+    }, [usuarioResult])
 
 
     function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
@@ -40,17 +40,17 @@ function CadastroUsuario() {
     }
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
-        setUser({
-            ...user,
+        setUsuario({
+            ...usuario,
             [e.target.name]: e.target.value
         })
     }
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if(confirmarSenha == user.senha){
-        console.log(user)
-        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        if(confirmarSenha == usuario.senha){
+       //console.log(usuarioResult)
+        cadastroUsuario(`/usuarios/cadastrar`, usuario, setUsuarioResult)
         alert('Usuario cadastrado com sucesso')
         }else{
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
@@ -66,22 +66,24 @@ function CadastroUsuario() {
 
                     <form onSubmit={onSubmit}>
 
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className="textos2">Cadastrar </Typography>
+                        <Typography variant='h3' gutterBottom 
+                        color='textPrimary' component='h3' align='center' 
+                            className="textos2">Cadastrar </Typography>
 
                         <TextField
-                            value={user.nome}
+                            value={usuario.nome}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='nome' label='nome' variant='outlined'
                             name='nome' margin='normal' fullWidth />
 
                         <TextField
-                            value={user.usuario}
+                            value={usuario.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='usuario' label='usuario' variant='outlined'
                             name='usuario' margin='normal' fullWidth />
 
                         <TextField
-                            value={user.senha}
+                            value={usuario.senha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='senha' label='senha' variant='outlined'
                             name='senha' margin='normal' type='password' fullWidth />
@@ -94,18 +96,20 @@ function CadastroUsuario() {
 
                         <TextField
                             onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            value={user.foto}
+                            value={usuario.foto}
                             id='foto' label='foto' variant='outlined'
                             name='foto' margin='normal' fullWidth />
 
                         <Box marginTop={2} textAlign='center'>
                            
                             <Link to='/login' className='text-decorator-none'>
-                                <Button variant='contained' color='secondary' className='btnCancelar'>
+                                <Button variant='contained' color='secondary' 
+                                className='btnCancelar'>
                                     Cancelar
                                 </Button>
                             </Link>
-                            <Button type='submit' variant='contained' color='primary'>
+                            <Button type='submit' variant='contained'
+                             color='primary'>
                                 Cadastrar
                             </Button>
                         </Box>
