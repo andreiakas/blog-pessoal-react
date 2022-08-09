@@ -1,15 +1,17 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Grid, Box, Typography, TextField, Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import { logar } from '../../services/Service';
 import UserLogin from '../../models/UserLogin';
 import './Login.css';
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../store/tokens/actions';
 
 function Logar() {
 
     let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+    const dispatch = useDispatch();
+    const [token, setToken] = useState('');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -31,6 +33,7 @@ function Logar() {
 
     useEffect(() => {
         if (token !== '') {
+            dispatch(addToken(token))
             navigate('/home')
         }
     }, [token])
@@ -64,18 +67,16 @@ function Logar() {
 
                             <Button type='submit' variant='contained' color='primary'>
                                 Logar
-                            </Button>
-
-                            
+                            </Button>                           
                         </Box>
                     </form>
 
                     <Box display='flex' justifyContent='center' marginTop={2}>
                         <Box marginRight={1}>
-                            <Typography variant="subtitle1" align="center" gutterBottom>Não tem uma conta?</Typography>
+                            <Typography variant="subtitle1" gutterBottom align="center">Não tem uma conta?</Typography>
                         </Box>
                         <Link to='/cadastrousuario'>
-                            <Typography variant="subtitle1" align="center" gutterBottom className="textos">Cadastre-se</Typography>
+                            <Typography variant="subtitle1" gutterBottom align="center" className="textos">Cadastre-se</Typography>
                         </Link>
 
                     </Box>
@@ -85,7 +86,7 @@ function Logar() {
 
             </Grid>
         </Grid>
-    )
+    );
 }
 
 export default Logar;
